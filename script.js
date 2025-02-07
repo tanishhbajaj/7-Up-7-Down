@@ -14,24 +14,24 @@ const resultText = document.getElementById('result-text');
 const cont = document.getElementById('contain');
 const title = document.getElementById('title');
 
-// Function to check if the device is a phone
+
 function isPhoneDevice() {
     return /Mobi|Android|iPhone|iPod/i.test(navigator.userAgent) || window.innerWidth <= 768;
 }
 
-// Initialize custom cursor (only for non-mobile devices)
+
 document.addEventListener("DOMContentLoaded", () => {
     if (!isPhoneDevice()) {
-        // Create custom cursor only if it doesn't already exist
+
         if (!document.querySelector(".custom-cursor")) {
             const cursor = document.createElement("div");
             cursor.classList.add("custom-cursor");
             document.body.appendChild(cursor);
         }
 
-        document.body.style.cursor = "none"; // Hide default cursor
+        document.body.style.cursor = "none";
 
-        // Track mouse movement
+
         document.addEventListener("mousemove", (e) => {
             const cursor = document.querySelector(".custom-cursor");
             if (cursor) {
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Function to handle hover effects (only for non-mobile devices)
+
 function applyHoverEffects() {
     if (!isPhoneDevice()) {
         cont.addEventListener("mouseover", mouseOverEffect);
@@ -82,11 +82,11 @@ function mouseOutEffect() {
     title.style.transform = "scale(1)";
 }
 
-// Initial check and event listener for resizing
+
 applyHoverEffects();
 window.addEventListener("resize", applyHoverEffects);
 
-// Event listeners for betting
+
 downButton.addEventListener('click', () => placeBet('down'));
 lucky7Button.addEventListener('click', () => placeBet('lucky7'));
 upButton.addEventListener('click', () => placeBet('up'));
@@ -95,7 +95,7 @@ amountInput.addEventListener('input', () => {
     betAmount = parseInt(amountInput.value);
 });
 
-// Function to place a bet
+
 function placeBet(betType) {
     if (betAmount > balance) {
         alert('Insufficient balance!');
@@ -106,7 +106,7 @@ function placeBet(betType) {
     resultText.textContent = `You've bet on ${betType === 'down' ? '7 Down' : betType === 'up' ? '7 Up' : 'Lucky 7'}`;
 }
 
-// Function to roll the dice and determine results
+
 function rollDice() {
     if (!currentBet) {
         alert('Please place a bet first!');
