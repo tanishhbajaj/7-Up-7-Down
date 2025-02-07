@@ -45,16 +45,30 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-cont.addEventListener("mouseover", function() {
+function applyHoverEffects() {
+    if (window.innerHeight >= 500) {
+        cont.addEventListener("mouseover", mouseOverEffect);
+        cont.addEventListener("mouseout", mouseOutEffect);
+    } else {
+        cont.removeEventListener("mouseover", mouseOverEffect);
+        cont.removeEventListener("mouseout", mouseOutEffect);
+    }
+}
+
+function mouseOverEffect() {
     cont.style.backgroundColor = "rgb(38, 59, 82)";
     title.style.transform = "scale(1.2)";
     title.style.transition = "transform 0.3s ease-in-out";
-});
+}
 
-cont.addEventListener("mouseout", function() {
+function mouseOutEffect() {
     cont.style.backgroundColor = "#34495e";
     title.style.transform = "scale(1)";
-});
+}
+
+applyHoverEffects();
+window.addEventListener("resize", applyHoverEffects);
+
 
 downButton.addEventListener('click', () => placeBet('down'));
 lucky7Button.addEventListener('click', () => placeBet('lucky7'));
