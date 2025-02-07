@@ -15,38 +15,45 @@ const cont = document.getElementById('contain');
 const tit = document.getElementById('title');
 
 document.addEventListener("DOMContentLoaded", () => {
-    if (!document.querySelector(".custom-cursor")) {
-        const cursor = document.createElement("div");
-        cursor.classList.add("custom-cursor");
-        document.body.appendChild(cursor);
+    function isMobileDevice() {
+        return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || window.innerWidth <= 768;
     }
 
-    document.addEventListener("mousemove", (e) => {
-        const cursor = document.querySelector(".custom-cursor");
-        if (cursor) {
-            cursor.style.left = `${e.clientX}px`;
-            cursor.style.top = `${e.clientY}px`;
+    if (!isMobileDevice()) {
+        if (!document.querySelector(".custom-cursor")) {
+            const cursor = document.createElement("div");
+            cursor.classList.add("custom-cursor");
+            document.body.appendChild(cursor);
         }
-    });
 
-    document.addEventListener("mouseenter", () => {
-        const cursor = document.querySelector(".custom-cursor");
-        if (cursor) {
-            cursor.style.display = "block";
-        }
-    });
+        document.addEventListener("mousemove", (e) => {
+            const cursor = document.querySelector(".custom-cursor");
+            if (cursor) {
+                cursor.style.left = `${e.clientX}px`;
+                cursor.style.top = `${e.clientY}px`;
+            }
+        });
 
-    document.addEventListener("mouseleave", () => {
-        const cursor = document.querySelector(".custom-cursor");
-        if (cursor) {
-            cursor.style.display = "none";
-        }
-    });
+        document.addEventListener("mouseenter", () => {
+            const cursor = document.querySelector(".custom-cursor");
+            if (cursor) {
+                cursor.style.display = "block";
+            }
+        });
+
+        document.addEventListener("mouseleave", () => {
+            const cursor = document.querySelector(".custom-cursor");
+            if (cursor) {
+                cursor.style.display = "none";
+            }
+        });
+    }
 });
 
 
+
 function applyHoverEffects() {
-    if (window.innerHeight >= 500) {
+    if (window.innerWidth >= 400) {
         cont.addEventListener("mouseover", mouseOverEffect);
         cont.addEventListener("mouseout", mouseOutEffect);
     } else {
@@ -66,6 +73,7 @@ function mouseOutEffect() {
     title.style.transform = "scale(1)";
 }
 
+// Initial check and event listener for window resize
 applyHoverEffects();
 window.addEventListener("resize", applyHoverEffects);
 
