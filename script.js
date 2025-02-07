@@ -10,15 +10,17 @@ const upButton = document.getElementById('up');
 const rollButton = document.getElementById('roll');
 const dice1 = document.getElementById('dice1');
 const dice2 = document.getElementById('dice2');
-let resultText = document.getElementById('result-text');
+const resultText = document.getElementById('result-text');
 const cont = document.getElementById('contain');
 const title = document.getElementById('title');
 
-document.addEventListener("DOMContentLoaded", () => {
-    function isPhoneDevice() {
-        return /Mobi|Android|iPhone|iPod/i.test(navigator.userAgent) || window.innerWidth <= 600;
-    }
+// Function to check if the device is a phone
+function isPhoneDevice() {
+    return /Mobi|Android|iPhone|iPod/i.test(navigator.userAgent) || window.innerWidth <= 768;
+}
 
+// Initialize custom cursor (only for non-mobile devices)
+document.addEventListener("DOMContentLoaded", () => {
     if (!isPhoneDevice()) {
         // Create custom cursor only if it doesn't already exist
         if (!document.querySelector(".custom-cursor")) {
@@ -52,15 +54,15 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     } else {
-        document.body.style.cursor = "default";
+        document.body.style.cursor = "default"; // Restore default cursor on phones
         const cursor = document.querySelector(".custom-cursor");
         if (cursor) cursor.remove(); // Remove cursor element on phones
     }
 });
 
-// Function to handle hover effects
+// Function to handle hover effects (only for non-mobile devices)
 function applyHoverEffects() {
-    if (window.innerWidth > 600) { // Only enable on tablets and larger screens
+    if (!isPhoneDevice()) {
         cont.addEventListener("mouseover", mouseOverEffect);
         cont.addEventListener("mouseout", mouseOutEffect);
     } else {
