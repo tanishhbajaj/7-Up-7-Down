@@ -157,6 +157,16 @@ input {
     }
 }
 
+@media (max-width: 768px) {
+    .custom-cursor {
+        display: none !important;
+    }
+
+    body {
+        cursor: default; 
+    }
+}
+
 
 @media (max-height: 500px) {
     body {
@@ -169,6 +179,7 @@ input {
     #welcome {
         font-size: 5vh;
     }
+    
 
     .dice {
         font-size: 4vh;
