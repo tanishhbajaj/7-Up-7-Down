@@ -157,14 +157,14 @@ input {
 
 @media (max-width: 768px) {
     .custom-cursor {
-        display: none !important; /* Hide custom cursor on phones */
+        display: none !important;
     }
 
     body {
-        cursor: default !important; /* Restore default cursor on phones */
+        cursor: default !important;
     }
 
-    /* Ensure other styles are still applied */
+
     .container {
         width: 90%;
         padding: 3vh;
@@ -175,7 +175,7 @@ input {
     }
 
     #welcome {
-        font-size: 6vh; /* Adjust for better visibility */
+        font-size: 6vh; 
     }
 
     .dice {
