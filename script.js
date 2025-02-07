@@ -26,6 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.appendChild(cursor);
         }
 
+        document.body.style.cursor = "none"; 
+
         document.addEventListener("mousemove", (e) => {
             const cursor = document.querySelector(".custom-cursor");
             if (cursor) {
@@ -47,9 +49,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 cursor.style.display = "none";
             }
         });
+    } else {
+        document.body.style.cursor = "default";
     }
 });
-
 
 
 function applyHoverEffects() {
