@@ -32,7 +32,6 @@ body {
     cursor: none;
 }
 
-
 .container {
     background-color: #34495e;
     padding: 3vh;
@@ -55,7 +54,7 @@ body {
     font-family: "Baskerville";
     font-size: 5vh;
     margin: 0;
-    text-shadow: 5px 5px 20px rgba(0, 0, 0, 0.7) ;
+    text-shadow: 5px 5px 20px rgba(0, 0, 0, 0.7);
 }
 
 .balance, .bet-amount {
@@ -105,12 +104,12 @@ input {
     font-size: 6vh;
 }
 
-#balance:hover{
+#balance:hover {
     background-color: rgb(183, 183, 182);
     cursor: none;
 }
 
-#amount:hover{
+#amount:hover {
     background-color: rgb(183, 183, 182);
 }
 
@@ -136,7 +135,6 @@ input {
     margin-top: 2vh;
 }
 
-
 @media (min-width: 700px) {
     body {
         gap: 10vh;
@@ -159,14 +157,14 @@ input {
 
 @media (max-width: 768px) {
     .custom-cursor {
-        display: none !important;
+        display: none !important; /* Hide custom cursor on phones */
     }
 
     body {
-        cursor: default !important;
+        cursor: default !important; /* Restore default cursor on phones */
     }
 
-    /* ✅ Ensure other styles are still applied */
+    /* Ensure other styles are still applied */
     .container {
         width: 90%;
         padding: 3vh;
@@ -191,8 +189,6 @@ input {
     }
 }
 
-
-
 @media (max-height: 500px) {
     body {
         gap: 5vh;
@@ -204,7 +200,6 @@ input {
     #welcome {
         font-size: 5vh;
     }
-    
 
     .dice {
         font-size: 4vh;
